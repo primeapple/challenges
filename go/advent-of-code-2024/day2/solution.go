@@ -51,11 +51,9 @@ func isSafe(report []int) bool {
 	return true
 }
 
-func generateSlices(fullArray []int) [][]int {
+func GenerateSlices(fullArray []int) [][]int {
 	var slices [][]int
     for i := range fullArray {
-        // Why does this work, whereas this doesnt
-        // `newSlice := append(fullArray[:i], fullArray[i+1:]...)``
         newSlice := append([]int{}, fullArray[:i]...)
         newSlice = append(newSlice, fullArray[i+1:]...)
 		slices = append(slices, newSlice)
@@ -71,7 +69,7 @@ func ReportSafetyChecking(reports [][]int, tolerateSingleBadLevel bool) int {
 		if isSafeFirstTry {
 			numSafeReports++
 		} else if tolerateSingleBadLevel {
-			for _, slice := range generateSlices(report) {
+			for _, slice := range GenerateSlices(report) {
 				isSafeInSlice := isSafe(slice)
 				if isSafeInSlice {
 					numSafeReports++

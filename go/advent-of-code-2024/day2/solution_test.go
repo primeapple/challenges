@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestReportSafetyChecking1(t *testing.T) {
 	cases1 := []struct {
@@ -108,5 +111,18 @@ func TestReportSafetyChecking2(t *testing.T) {
 				t.Errorf("got %d expected %d given reports %v", got, want, test.Reports)
 			}
 		})
+	}
+}
+
+func TestGenerateSlices(t *testing.T) {
+	got := GenerateSlices([]int{1, 2, 3})
+	want := [][]int{
+		[]int{2, 3},
+		[]int{1, 3},
+		[]int{1, 2},
+	}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v expected %v", got, want)
 	}
 }
