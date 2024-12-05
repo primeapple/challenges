@@ -38,22 +38,6 @@ func (r Ruleset) AddComparison(left, right int) {
 	}
 }
 
-func (r Ruleset) IsCorrectlyOrdered(numbers []int) bool {
-	for i := 0; i < len(numbers)-1; i++ {
-		comparator, found := r[numbers[i]]
-		if !found {
-			continue
-		}
-
-		for j := i + 1; j < len(numbers); j++ {
-			if slices.Contains(comparator.Smaller, numbers[j]) {
-				return false
-			}
-		}
-	}
-	return true
-}
-
 func (r Ruleset) Compare(num1, num2 int) int {
 	comparator, found := r[num1]
 	if !found {
@@ -103,7 +87,7 @@ func SumMiddlePageOfOrdered(lines []string, r Ruleset) int {
 			nums = append(nums, num)
 		}
 
-		if r.IsCorrectlyOrdered(nums) {
+		if slices.IsSortedFunc(nums, r.Compare) {
 			sum += nums[len(nums)/2]
 		}
 	}
@@ -124,8 +108,8 @@ func SumMiddlePageOfUnordered(lines []string, r Ruleset) int {
 			nums = append(nums, num)
 		}
 
-		if !r.IsCorrectlyOrdered(nums) {
-            slices.SortFunc(nums, r.Compare)
+		if !slices.IsSortedFunc(nums, r.Compare) {
+			slices.SortFunc(nums, r.Compare)
 			sum += nums[len(nums)/2]
 		}
 	}

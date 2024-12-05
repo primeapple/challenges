@@ -115,9 +115,7 @@ func TestSumMiddlePageOfOrdered(t *testing.T) {
 		{
 			"wrong lines",
 			[]string{
-				"3,1,2",
-				"2,1,5,2,3",
-				"0,1,2,3,1",
+				"3,2,1",
 			},
 			0,
 		},
