@@ -1,0 +1,75 @@
+package chessmoves
+
+import (
+	"testing"
+)
+
+func TestKingMovesAI(t *testing.T) {
+	t.Run("should work", func(t *testing.T) {
+		position := Position{row: 4, col: 4}
+
+		got := KingMovesAI(position)
+		want := []Position{
+			{row: 3, col: 3},
+			{row: 3, col: 4},
+			{row: 3, col: 5},
+			{row: 4, col: 3},
+			{row: 4, col: 5},
+			{row: 5, col: 3},
+			{row: 5, col: 4},
+			{row: 5, col: 5},
+		}
+
+		assertDeepEquals(t, got, want)
+	})
+}
+
+
+func TestKnightMovesAI(t *testing.T) {
+	// EXAMPLES
+	t.Run("should work with example 1", func(t *testing.T) {
+		position := Position{row: 4, col: 4}
+
+		got := KnightMovesAI(position)
+		want := []Position{
+			{row: 2, col: 3},
+			{row: 2, col: 5},
+			{row: 3, col: 2},
+			{row: 3, col: 6},
+			{row: 5, col: 2},
+			{row: 5, col: 6},
+			{row: 6, col: 3},
+			{row: 6, col: 5},
+		}
+
+		assertDeepEquals(t, got, want)
+	})
+
+	t.Run("should work with example 2", func(t *testing.T) {
+		position := Position{row: 0, col: 0}
+
+		got := KnightMovesAI(position)
+		want := []Position{
+			{row: 1, col: 2},
+			{row: 2, col: 1},
+		}
+
+		assertDeepEquals(t, got, want)
+	})
+
+	t.Run("should work with example 3", func(t *testing.T) {
+		position := Position{row: 1, col: 2}
+
+		got := KnightMovesAI(position)
+		want := []Position{
+			{row: 0, col: 0},
+			{row: 0, col: 4},
+			{row: 2, col: 0},
+			{row: 2, col: 4},
+			{row: 3, col: 1},
+			{row: 3, col: 3},
+		}
+
+		assertDeepEquals(t, got, want)
+	})
+}
