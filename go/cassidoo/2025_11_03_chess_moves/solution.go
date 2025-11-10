@@ -1,6 +1,6 @@
 package chessmoves
 
-var kingMovePatterns = [][]int{
+var KingMoves = movesGenerator([][]int{
 	{-1, -1},
 	{-1, 0},
 	{-1, 1},
@@ -9,9 +9,9 @@ var kingMovePatterns = [][]int{
 	{1, -1},
 	{1, 0},
 	{1, 1},
-}
+})
 
-var knightMovePatterns = [][]int{
+var KnightMoves = movesGenerator([][]int{
 	{-2, -1},
 	{-2, 1},
 	{-1, -2},
@@ -20,22 +20,17 @@ var knightMovePatterns = [][]int{
 	{1, 2},
 	{2, -1},
 	{2, 1},
-}
+})
 
-func KingMoves(currentPosition Position) []Position {
-	positions := []Position{}
-	for _, pattern := range kingMovePatterns {
-		newPosition := generateNewPosition(currentPosition, pattern[0], pattern[1])
-		if isInRange(newPosition) {
-			positions = append(positions, newPosition)
-		}
+func movesGenerator(patterns [][]int) func(Position) []Position {
+	return func(currentPosition Position) []Position {
+		return generateMoves(currentPosition, patterns)
 	}
-	return positions
 }
 
-func KnightMoves(currentPosition Position) []Position {
+func generateMoves(currentPosition Position, patterns [][]int) []Position {
 	positions := []Position{}
-	for _, pattern := range knightMovePatterns {
+	for _, pattern := range patterns {
 		newPosition := generateNewPosition(currentPosition, pattern[0], pattern[1])
 		if isInRange(newPosition) {
 			positions = append(positions, newPosition)
