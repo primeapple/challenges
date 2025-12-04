@@ -1,6 +1,7 @@
 package merge
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -13,6 +14,6 @@ func TestMergeAI(t *testing.T) {
 		got := MergeAI(mergeInto, merger)
 		want := []int{1, 2, 3, 4, 5, 6}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }

@@ -1,6 +1,7 @@
 package repeatedIntegers
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -12,6 +13,6 @@ func TestRepeatedIntegers(t *testing.T) {
 		got := RepeatedIntegers(n)
 		want := []int{1, 2, 2, 3, 3, 3, 4, 4, 4, 4}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }

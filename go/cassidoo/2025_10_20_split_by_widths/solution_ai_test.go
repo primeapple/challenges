@@ -1,7 +1,7 @@
 package splitbywidths
 
 import (
-	"reflect"
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -13,7 +13,7 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{"a", "bcd"}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with shorter string than widths", func(t *testing.T) {
@@ -23,7 +23,7 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{"a", "bcd"}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with longer string than widths", func(t *testing.T) {
@@ -33,7 +33,7 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{"a", "bc", "d"}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with example", func(t *testing.T) {
@@ -43,7 +43,7 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{"Super", "califragi", "list", "icex", "pial", "idoc", "ious"}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with empty string", func(t *testing.T) {
@@ -53,7 +53,7 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with empty widths slice", func(t *testing.T) {
@@ -63,13 +63,6 @@ func TestSplitByWidthsAI(t *testing.T) {
 		got := SplitByWidthsAI(str, widths)
 		want := []string{}
 
-		assertDeepEqualsAI(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
-}
-
-func assertDeepEqualsAI(t *testing.T, got, want any) {
-	t.Helper()
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v expected %v", got, want)
-	}
 }

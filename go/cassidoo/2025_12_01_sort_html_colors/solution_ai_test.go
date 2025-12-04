@@ -1,6 +1,7 @@
 package sortHtmlColors
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -9,7 +10,7 @@ func TestSortHtmlColorsAI(t *testing.T) {
 		t.Run("should work with permutation", func(t *testing.T) {
 			got := SortHtmlColorsAI(GetColorsInRandomOrder())
 			want := HtmlColors
-			assertDeepEquals(t, got, want)
+			utils.AssertDeepEquals(t, got, want)
 		})
 	}
 }

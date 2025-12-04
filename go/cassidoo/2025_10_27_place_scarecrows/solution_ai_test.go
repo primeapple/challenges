@@ -1,6 +1,7 @@
 package placescarecrows
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -13,7 +14,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{0, 1, 2}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("with k=3 should cover i-1, i, i+1", func(t *testing.T) {
@@ -23,7 +24,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{1}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("place scarecrows on unneeded fields if it makes sense", func(t *testing.T) {
@@ -33,7 +34,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{1}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("ignore protection for unneeded fields", func(t *testing.T) {
@@ -43,7 +44,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{1, 2}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("place scarecrow on the later field if we have the choice", func(t *testing.T) {
@@ -53,7 +54,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{2}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	// EXAMPLES
@@ -64,7 +65,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{1, 4, 6}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with example 2", func(t *testing.T) {
@@ -74,7 +75,7 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{1, 4}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with example 3", func(t *testing.T) {
@@ -84,6 +85,6 @@ func TestPlaceScarecrowsAI(t *testing.T) {
 		got := PlaceScarecrowsAI(field, k)
 		want := []int{0, 1, 2, 3, 4}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }

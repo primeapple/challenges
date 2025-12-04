@@ -1,6 +1,7 @@
 package maxMealPrepTasks
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -20,6 +21,6 @@ func TestMaxMealPrepTasksAI(t *testing.T) {
 			chosen: []string{"Make Gravy", "Mash Potatoes", "Prep Salad"},
 		}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }

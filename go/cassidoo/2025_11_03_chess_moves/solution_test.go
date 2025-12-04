@@ -1,6 +1,7 @@
 package chessmoves
 
 import (
+	"cassidoo/utils"
 	"testing"
 )
 
@@ -20,10 +21,9 @@ func TestKingMoves(t *testing.T) {
 			{row: 5, col: 5},
 		}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }
-
 
 func TestKnightMoves(t *testing.T) {
 	// EXAMPLES
@@ -42,7 +42,7 @@ func TestKnightMoves(t *testing.T) {
 			{row: 6, col: 5},
 		}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with example 2", func(t *testing.T) {
@@ -54,7 +54,7 @@ func TestKnightMoves(t *testing.T) {
 			{row: 2, col: 1},
 		}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 
 	t.Run("should work with example 3", func(t *testing.T) {
@@ -70,6 +70,6 @@ func TestKnightMoves(t *testing.T) {
 			{row: 3, col: 3},
 		}
 
-		assertDeepEquals(t, got, want)
+		utils.AssertDeepEquals(t, got, want)
 	})
 }
