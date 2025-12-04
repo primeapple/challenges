@@ -1,0 +1,14 @@
+package {{PACKAGE_NAME}}
+
+import (
+	"cassidoo/utils"
+	"testing"
+)
+
+func Test{{FUNCTION_NAME}}(t *testing.T) {
+	t.Run("should work with example", func(t *testing.T) {
+		got := {{FUNCTION_NAME}}(/* TODO: add input */)
+		want := /* TODO: add expected output */
+		utils.AssertDeepEquals(t, got, want)
+	})
+}
