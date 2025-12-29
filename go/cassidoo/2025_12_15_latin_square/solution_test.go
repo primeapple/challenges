@@ -31,7 +31,6 @@ func TestLatinSquare(t *testing.T) {
 	})
 }
 
-
 func TestLatinSquareConcurrent(t *testing.T) {
 	t.Run("should work with example 1", func(t *testing.T) {
 		got := LatinSquareConcurrent(1)

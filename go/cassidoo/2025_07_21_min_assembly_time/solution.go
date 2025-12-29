@@ -19,7 +19,7 @@ func MinAssemblyTime(parts []AssemblyDetail) int {
 	for _, part := range sortedParts {
 		// the part is not there yet, we have to wait
 		if currentTime < part.arrivalDays*24 {
-			currentTime = part.arrivalDays*24
+			currentTime = part.arrivalDays * 24
 		}
 
 		currentTime += part.assemblyHours

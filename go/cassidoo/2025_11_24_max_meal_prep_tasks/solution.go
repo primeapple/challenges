@@ -26,6 +26,5 @@ func MaxMealPrepTasks(tasks []Task) TasksOrder {
 		}
 	}
 
-
 	return TasksOrder{count: len(chosenTasks), chosen: chosenTasks}
 }

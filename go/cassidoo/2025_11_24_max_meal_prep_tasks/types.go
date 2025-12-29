@@ -1,12 +1,12 @@
 package maxMealPrepTasks
 
 type Task struct {
-	name string
+	name  string
 	start int
-	end int
+	end   int
 }
 
 type TasksOrder struct {
-	count int
+	count  int
 	chosen []string
 }

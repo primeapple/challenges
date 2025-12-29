@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"errors"
 	"reflect"
 	"testing"
 )
@@ -40,6 +41,28 @@ func AssertIsNegative(t *testing.T, got int) {
 	}
 }
 
+func AssertNil(t *testing.T, got any) {
+	t.Helper()
+	if got != nil {
+		t.Errorf("got %v but wanted nil", got)
+	}
+}
+
+func AssertNotNil(t *testing.T, got any) {
+	t.Helper()
+	if got == nil {
+		t.Errorf("got nil but wanted non nil")
+	}
+}
+
+func AssertError(t *testing.T, got, want error) {
+	t.Helper()
+	AssertNotNil(t, got)
+	if !errors.Is(got, want) {
+		t.Errorf("got %v, wanted %v", got, want)
+	}
+}
+
 func AssertFalse(t *testing.T, got bool) {
 	t.Helper()
 	if got {
@@ -53,4 +76,3 @@ func AssertTrue(t *testing.T, got bool) {
 		t.Errorf("expected passed value to be true, but was false")
 	}
 }
-

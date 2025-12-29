@@ -33,7 +33,7 @@ func LatinSquareConcurrent(n int) [][]int {
 	done := make(chan struct{}, n)
 
 	for i := 1; i < n; i++ {
-		go rotateByWithChannel(initialRow, i, c, done) 
+		go rotateByWithChannel(initialRow, i, c, done)
 	}
 	for i := 1; i < n; i++ {
 		<-done

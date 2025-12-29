@@ -16,13 +16,13 @@ func PlaceScarecrowsAI(field []int, k int) []int {
 		// If this position needs protection and isn't already protected
 		if field[i] == 1 && !protected[i] {
 			// Place scarecrow as far right as possible while still covering position i
-			scarecrowPos := min(i + radius, n - 1)
+			scarecrowPos := min(i+radius, n-1)
 
 			result = append(result, scarecrowPos)
 
 			// Mark all positions this scarecrow protects
-			start := max(0, scarecrowPos - radius)
-			end := min(n - 1, scarecrowPos + radius)
+			start := max(0, scarecrowPos-radius)
+			end := min(n-1, scarecrowPos+radius)
 			for j := start; j <= end; j++ {
 				protected[j] = true
 			}
