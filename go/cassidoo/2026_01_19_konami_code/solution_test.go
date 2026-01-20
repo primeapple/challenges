@@ -21,7 +21,8 @@ func TestKonamiCode(t *testing.T) {
 	})
 
 	t.Run("should return err if no mapping found", func(t *testing.T) {
-		_, err := KonamiCode("abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc")
+		result, err := KonamiCode("abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc")
+		utils.AssertNil(t, result)
 		utils.AssertError(t, err, ErrNoMappingFound)
 	})
 }

@@ -43,14 +43,15 @@ func AssertIsNegative(t *testing.T, got int) {
 
 func AssertNil(t *testing.T, got any) {
 	t.Helper()
-	if got != nil {
-		t.Errorf("got %v but wanted nil", got)
+	if got == nil || reflect.ValueOf(got).IsNil() {
+		return
 	}
+	t.Errorf("got %v but wanted nil", got)
 }
 
 func AssertNotNil(t *testing.T, got any) {
 	t.Helper()
-	if got == nil {
+	if got == nil || reflect.ValueOf(got).IsNil() {
 		t.Errorf("got nil but wanted non nil")
 	}
 }
