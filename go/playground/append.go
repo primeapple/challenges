@@ -14,6 +14,6 @@ func GenerateSlices(fullArray []int) [][]int {
 	return slices
 }
 
-func main() {
-    GenerateSlices([]int{1,2})
-}
+// func main() {
+//     GenerateSlices([]int{1,2})
+// }
