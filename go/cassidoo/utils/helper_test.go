@@ -78,3 +78,11 @@ func TestReduce(t *testing.T) {
 		AssertEquals(t, got, want)
 	})
 }
+
+func TestUnique(t *testing.T) {
+	t.Run("should return unique ites", func(t *testing.T) {
+		got := Unique([]int{1, 2, 2})
+		want := []int{1,2}
+		AssertDeepEquals(t, got, want)
+	})
+}

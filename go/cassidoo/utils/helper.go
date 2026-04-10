@@ -38,3 +38,17 @@ func Reduce[IN, OUT any](list []IN, accumulator OUT, f func(IN, OUT) OUT) OUT {
 	}
 	return accumulator
 }
+
+func Unique[T comparable](list []T) []T {
+	seen := map[T]struct{}{}
+	result := []T{}
+	for _, item := range list {
+		_, exists := seen[item]
+		if !exists {
+			seen[item] = struct{}{}
+			result = append(result, item)
+		}
+	}
+
+	return result
+}
