@@ -24,10 +24,10 @@ func Filter[T any](list []T, f func(T) bool) []T {
 	return filtered
 }
 
-func Map[IN, OUT any](list []IN, f func(IN) OUT) []OUT {
+func Map[IN, OUT any](list []IN, f func(IN, int) OUT) []OUT {
 	var mapped = make([]OUT, len(list))
 	for i, item := range list {
-		mapped[i] = f(item)
+		mapped[i] = f(item, i)
 	}
 	return mapped
 }

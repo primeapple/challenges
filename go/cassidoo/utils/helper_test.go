@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"strconv"
+	"fmt"
 	"testing"
 )
 
@@ -44,13 +44,13 @@ func TestFilter(t *testing.T) {
 }
 
 func TestMap(t *testing.T) {
-	toString := func(a int) string {
-		return strconv.Itoa(a)
+	toString := func(a int, index int) string {
+		return fmt.Sprintf("%d - %d", a, index)
 	}
 
 	t.Run("should map properly", func(t *testing.T) {
 		got := Map([]int{4, 6}, toString)
-		want := []string{"4", "6"}
+		want := []string{"4 - 0", "6 - 1"}
 		AssertDeepEquals(t, got, want)
 	})
 
